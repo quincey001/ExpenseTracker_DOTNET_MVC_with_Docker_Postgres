@@ -10,6 +10,8 @@ var conn = builder.Configuration.GetConnectionString("DevConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(
  options => options.UseNpgsql(conn)
  );
+//Register Syncfusion license
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cXmhLYVJzWmFZfVpgc19DYVZVQ2YuP1ZhSXxXdkdjUX9ZdXVRQWZVU0w=");
 
 var app = builder.Build();
 
@@ -26,7 +28,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 app.Run();
 
